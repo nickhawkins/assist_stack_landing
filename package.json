@@ -7,8 +7,8 @@
     "build:css": "npx tailwindcss -i ./src/input.css -o ./docs/output.css --minify",
     "build:html": "cp ./src/index.html ./docs/index.html",
     "build:webp": "cp ./src/logo.webp ./docs/logo.webp",
-    "build:assets": "mkdir -p ./docs/assets && cp -R ./src/assets/. ./docs/assets/",
-    "build": "npm-run-all build:css build:html build:assets",
+    "build:screenshot": "cp ./src/screenshot.png ./docs/screenshot.png",
+    "build": "npm-run-all build:css build:html build:webp build:screenshot",
     "dev": "npx tailwindcss -i ./src/input.css -o ./src/output.css --watch"
   },
   "keywords": [],
