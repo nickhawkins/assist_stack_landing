@@ -3,145 +3,171 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
-	<meta http-equiv="Pragma" content="no-cache">
-	<meta http-equiv="Expires" content="0">
 	<title>DigitalHawk.ai</title>
 	<link href="output.css" rel="stylesheet">
 
-	<!-- Start of digital hawk chatbot -->
-	<script>
-		const timestamp = new Date().getTime();
-		const cssLink = document.createElement('link');
-		cssLink.rel = 'stylesheet';
-		cssLink.href = 'https://digital-hawk.fly.dev/widget.css?v='+timestamp;
-		document.head.appendChild(cssLink);
-		const DigitalHawkChatbot_script = document.createElement('script');
-		DigitalHawkChatbot_script.src = 'https://digital-hawk.fly.dev/widget.js?v='+timestamp;
-		document.head.appendChild(DigitalHawkChatbot_script);
-		DigitalHawkChatbot_script.onload = function() {
-			if (typeof DigitalHawkChatbot === 'function') {
-				window.DigitalHawkChatbot_id = 'asst_87No0vROA7XvDbh9pFpmc2zj';
-				window.DigitalHawkChatbot_baseUrl = 'https://digital-hawk.fly.dev/';
-				window.DigitalHawkChatbot_clientName = 'digitalhawk';
-				window.DigitalHawkChatbot_additionalData = {};
-				var digitalhawk_chatbot_container = document.getElementById('digitalhawk-chatbot-container')
-				if (digitalhawk_chatbot_container == null){
-					digitalhawk_chatbot_container = document.createElement('div');
-					digitalhawk_chatbot_container.id = 'digitalhawk-chatbot-container';
-					document.body.appendChild(digitalhawk_chatbot_container);
-				}
-				DigitalHawkChatbot('#digitalhawk-chatbot-container');
-			}
-		};
-	</script>
-	<!-- End of digital hawk chatbot -->
-
-	<style>
-
-		#digitalhawk-chatbot-container {
-			position: relative;
-		}
-
-	</style>
-
 </head>
-<body class="text-gray-950 antialiased">
-	<div class="relative">
+<body>
 
-		<!-- Grid pattern -->
-		<svg class="absolute inset-0 -z-10 h-full w-full stroke-gray-200 [mask-image:radial-gradient(100%_100%_at_top_right,white,transparent)]" aria-hidden="true">
-			<defs>
-			<pattern id="0787a7c5-978c-4f66-83c7-11c213f99cb7" width="200" height="200" x="50%" y="-1" patternUnits="userSpaceOnUse">
-				<path d="M.5 200V.5H200" fill="none" />
-			</pattern>
-			</defs>
-			<rect width="100%" height="100%" stroke-width="0" fill="url(#0787a7c5-978c-4f66-83c7-11c213f99cb7)" />
-		</svg>
+	<!-- Effect -->
+	<div>
+		<div class="absolute inset-0 -z-10 h-full w-full bg-white [background:radial-gradient(125%_125%_at_50%_10%,#fff_40%,#e7deff_100%)]"></div>
+		<div class="pointer-events-none absolute bottom-0 left-0 w-full h-40 bg-gradient-to-b from-transparent to-white"></div>
+	</div>
 
-		<div class="relative px-6 lg:px-8">
-			<div class="mx-auto max-w-2xl lg:max-w-7xl">
-
-				<!-- Nav -->
-				<header class="pt-12 sm:pt-16" data-headlessui-state="">
-					<div class="">
-						<div class="relative flex justify-between group/row relative isolate pt-[calc(--spacing(2)+1px)] last:pb-[calc(--spacing(2)+1px)]">
-
-							<!-- Border -->
-							<div aria-hidden="true" class="absolute inset-y-0 left-1/2 -z-10 w-screen -translate-x-1/2">
-								<div class="absolute inset-x-0 top-0 border-t border-black/5"></div>
-								<div class="absolute inset-x-0 top-2 border-t border-black/5"></div>
-								<div class="absolute inset-x-0 bottom-0 hidden border-b border-black/5 group-last/row:block"></div>
-								<div class="absolute inset-x-0 bottom-2 hidden border-b border-black/5 group-last/row:block"></div>
-							</div>
-
-							<!-- Logo -->
-							<div class="relative flex gap-6">
-								<div class="py-3 group/item relative">
-									<div class="flex items-center">
-										<img class="h-[34px] rounded-full" src="logo.webp" alt="DigitalHawk.ai">
-										<div class="ml-3 text-lg font-bold text-gray-950"">DigitalHawk</div>
-									</div>
-								</div>
-							</div>
-
-							<!-- Desktop nav -->
-							<nav class="relative hidden lg:flex items-center">
-								<div>
-									<a class="flex items-center px-4 py-1 text-base font-medium text-gray-950 bg-blend-multiply hover:bg-black/[2.5%] rounded-full border border-transparent bg-white/15 ring-1 shadow-md hover:shadow-lg transition-all duration-300 ease-in-out ring-[#D15052]/15" data-headlessui-state="" href="https://digital-hawk.fly.dev/admin/login">Login</a>
-								</div>
-							</nav>
-
-							<!-- Mobile nav button -->
-							<button class="flex size-12 items-center justify-center self-center rounded-lg hover:bg-black/5 lg:hidden" aria-label="Open main menu" id="headlessui-disclosure-button-:Rsm6fkq:" type="button" aria-expanded="false" data-headlessui-state="">
-								<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" data-slot="icon" class="size-6">
-								<path fill-rule="evenodd" d="M3 9a.75.75 0 0 1 .75-.75h16.5a.75.75 0 0 1 0 1.5H3.75A.75.75 0 0 1 3 9Zm0 6.75a.75.75 0 0 1 .75-.75h16.5a.75.75 0 0 1 0 1.5H3.75a.75.75 0 0 1-.75-.75Z" clip-rule="evenodd"></path>
-								</svg>
-							</button>
-							
-						</div>
-					</div>
-				</header>
-
-				<!-- Hero -->
-				<div class="grid grid-cols-3 gap-4">
-					<div class="col-span-3 lg:col-span-2 flex flex-col justify-center pt-16 pb-16 lg:pt-0 lg:pb-0">
-						<h1 class="font-display text-7xl font-medium tracking-tight text-balance text-gray-950">Elevate your customer service with <span class="color-wave-text">24/7 AI-Powered Support</span></h1>
-						<p class="mt-8 max-w-lg text-xl/7 font-medium text-gray-950/75 sm:text-xl/8">Deliver Unmatched Customer Satisfaction Anytime, Anywhere with Intelligent AI Solutions</p>
-						<div class="mt-12 flex flex-col gap-x-6 gap-y-4 sm:flex-row">
-							<a 
-								class="color-wave inline-flex items-center justify-center px-4 py-1 rounded-full border border-transparent bg-gray-950 hover:bg-gray-900 shadow-md hover:shadow-xl transition-all duration-300 ease-in-out text-base font-medium whitespace-nowrap text-white" 
-								data-headlessui-state="" 
-								href="https://calendly.com/nick-digitalhawk/your-ai-assistant-demo"
-								target="_blank">
-								Book a demo
-							</a>
-						</div>
-					</div>
-					<div class="col-span-3 lg:col-span-1 flex items-center justify-center pb-16 lg:pb-0">
-						<div class="bg-white rounded-xl shadow-2xl w-[400px] h-[600px] bg-white overflow-hidden" id="digitalhawk-chatbot-container"></div>
+	<!-- Header -->
+	<header class="border-b border-gray-100">
+		<div class="max-w-7xl grid grid-cols-2 lg:grid-cols-3 w-full mx-auto px-6 lg:px-8">
+			<div class="relative flex gap-6">
+				<div class="py-3 group/item relative">
+					<div class="flex items-center">
+						<img class="h-[34px] rounded-full" src="logo.webp" alt="DigitalHawk.ai">
+						<div class="ml-3 text-lg font-bold text-gray-950" "="">DigitalHawk</div>
 					</div>
 				</div>
-
-				<!-- Used by -->
-
-				<!--
-				<div class="mt-10 px-6 lg:px-8">
-					<div class="mx-auto max-w-2xl lg:max-w-7xl">
-						<div class="flex justify-between max-sm:mx-auto max-sm:max-w-md max-sm:flex-wrap max-sm:justify-evenly max-sm:gap-x-4 max-sm:gap-y-4">
-							<img src="./roompricegenie_logo.png" class="h-9 max-sm:mx-auto sm:h-8 lg:h-12">
-							<img src="./innercircle_logo.png" class="h-9 max-sm:mx-auto sm:h-8 lg:h-12">
-							<img src="./tpm_logo.png" class="h-9 max-sm:mx-auto sm:h-8 lg:h-12">
-							<img src="./princepharmacy.png" class="h-9 max-sm:mx-auto sm:h-8 lg:h-12">	
-						</div>
-					</div>
-				</div> 
-				-->
-
+			</div>
+			<div class="hidden lg:flex items-center justify-center gap-6 text-gray-600 text-sm">
+				<a href="#pricing">Pricing</a>
+				<a href="#features">Features</a>
+				<a href="#testimonials">Testimonials</a>
+			</div>
+			<nav class="flex justify-end items-center gap-2">
+				<nav class="relative hidden lg:flex items-center gap-2">
+					<a href="https://digital-hawk.fly.dev/admin/login" class="rounded-md bg-white px-2.5 py-1.5 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50">
+						Log in
+					</a>
+					<a href="https://digital-hawk.fly.dev/admin/signup" class="rounded-md color-wave px-2.5 py-1.5 text-sm font-semibold text-white">
+						Get started
+					</a>
+				</nav>
+				<button id="burger" class="flex size-12 items-center justify-center self-center rounded-lg hover:bg-black/5 lg:hidden" aria-label="Open main menu" id="headlessui-disclosure-button-:Rsm6fkq:" type="button" aria-expanded="false" data-headlessui-state="">
+					<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" data-slot="icon" class="size-6">
+					<path fill-rule="evenodd" d="M3 9a.75.75 0 0 1 .75-.75h16.5a.75.75 0 0 1 0 1.5H3.75A.75.75 0 0 1 3 9Zm0 6.75a.75.75 0 0 1 .75-.75h16.5a.75.75 0 0 1 0 1.5H3.75a.75.75 0 0 1-.75-.75Z" clip-rule="evenodd"></path>
+					</svg>
+				</button>
 			</div>
 		</div>
+	</header>
 
+	<!-- Mobile nav -->
+	<div id="mobileMenu" class="fixed inset-0 z-50 hidden flex-col items-center gap-8 bg-white/90 backdrop-blur pt-24 lg:hidden transition-opacity duration-300">
+		<button id="closeMenu" class="absolute top-6 right-6 size-10 flex items-center justify-center rounded-lg hover:bg-black/5" aria-label="Close menu">
+			<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="size-6">
+				<path fill-rule="evenodd" d="M6.22 4.97a.75.75 0 0 1 1.06 0L12 9.69l4.72-4.72a.75.75 0 1 1 1.06 1.06L13.06 10.75l4.72 4.72a.75.75 0 0 1-1.06 1.06L12 11.81l-4.72 4.72a.75.75 0 0 1-1.06-1.06l4.72-4.72-4.72-4.72a.75.75 0 0 1 0-1.06Z" clip-rule="evenodd"/>
+			</svg>
+		</button>
+		<nav class="flex flex-col items-center gap-8 text-lg font-medium">
+			<a href="#pricing">Pricing</a>
+			<a href="#features">Features</a>
+			<a href="#testimonials">Testimonials</a>
+			<a href="https://digital-hawk.fly.dev/admin/login" class="rounded-md bg-white px-2.5 py-1.5 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50">
+				Log in
+			</a>
+			<a href="https://digital-hawk.fly.dev/admin/signup" class="rounded-md color-wave px-2.5 py-1.5 text-sm font-semibold text-white">
+				Get started
+			</a>
+		</nav>
 	</div>
- </body>
+
+	<!-- Hero -->
+	<section class="w-full text-center pt-24 pb-12 px-4 md:px-16">
+		<h1 class="fade-up text-4xl lg:text-6xl font-extrabold max-w-4xl mx-auto">
+			Deflect <span class="color-wave-text">40%</span> of Your Hospitality SaaS Support Tickets<br /> in <span class="color-wave-text">30 Days</span>
+		</h1>
+		<p class="fade-up text-gray-600 mt-6 text-lg max-w-3xl mx-auto opacity-90">
+			AI customer‑service co‑pilot pre‑trained on PMS, channel‑manager &amp; revenue‑management FAQs. Live in under 30&nbsp;minutes.
+		</p>
+		<div class="fade-up mt-12 flex flex-col sm:flex-row justify-center gap-4">
+			<a
+ 				href="https://digital-hawk.fly.dev/admin/signup"
+				class="flex items-center justify-center rounded-md bg-white px-3.5 py-2.5 text-sm font-semibold color-wave text-white shadow-sm">
+		  		Get Started
+		  		<svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+			</a>
+			<a
+				href="https://calendly.com/nick-digitalhawk/your-ai-assistant-demo" 
+				target="_blank" 
+				class="rounded-md bg-white px-3.5 py-2.5 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50">
+				Book a 15‑min Demo
+			</a>
+		</div>
+	</section>
+
+	<!-- Visual -->
+	<section class="w-full text-center py-12 px-4 md:px-16">
+		<img class="fade-up w-full max-w-5xl h-auto mx-auto border rounded-xl shadow" src="./screenshot.png" />
+	</section>
+
+	<!-- Testimonial -->
+	<section class="w-full py-12 px-4 md:px-16" id="testimonials">
+		<div class="text-center mb-12 text-5xl font-semibold tracking-tight text-balance text-gray-900">Testimonials</div>
+		<figure class="mx-auto max-w-2xl">
+			<p class="sr-only">5 out of 5 stars</p>
+			<div class="flex gap-x-1 text-indigo-600">
+				<svg class="size-5 flex-none" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true" data-slot="icon">
+					<path fill-rule="evenodd" d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401Z" clip-rule="evenodd" />
+				</svg>
+				<svg class="size-5 flex-none" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true" data-slot="icon">
+					<path fill-rule="evenodd" d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401Z" clip-rule="evenodd" />
+				</svg>
+				<svg class="size-5 flex-none" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true" data-slot="icon">
+					<path fill-rule="evenodd" d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401Z" clip-rule="evenodd" />
+				</svg>
+				<svg class="size-5 flex-none" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true" data-slot="icon">
+					<path fill-rule="evenodd" d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401Z" clip-rule="evenodd" />
+				</svg>
+				<svg class="size-5 flex-none" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true" data-slot="icon">
+					<path fill-rule="evenodd" d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401Z" clip-rule="evenodd" />
+				</svg>
+			</div>
+			<blockquote class="mt-10 text-xl/8 font-semibold tracking-tight text-gray-900 sm:text-2xl/9">
+				<p>“Qui dolor enim consectetur do et non ex amet culpa sint in ea non dolore. Enim minim magna anim id minim eu cillum sunt dolore aliquip. Amet elit laborum culpa irure incididunt adipisicing culpa amet officia exercitation. Eu non aute velit id velit Lorem elit anim pariatur.”</p>
+			</blockquote>
+			<figcaption class="mt-10 flex items-center gap-x-6">
+				<img class="size-12 rounded-full bg-gray-50" src="https://images.unsplash.com/photo-1550525811-e5869dd03032?ixlib=rb-=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=1024&h=1024&q=80" alt="">
+				<div class="text-sm/6">
+					<div class="font-semibold text-gray-900">Judith Black</div>
+					<div class="mt-0.5 text-gray-600">CEO of Workcation</div>
+				</div>
+			</figcaption>
+		</figure>
+	</section>
+
+	<!-- Features -->
+	<section class="w-full text-center py-12 px-4 md:px-16" id="features">
+		<div class="text-center mb-12 text-5xl font-semibold tracking-tight text-balance text-gray-900">Made for modern Hospitality</div>
+	</section>
+
+	<!-- Pricing -->
+	<section class="w-full text-center py-12 px-4 md:px-16" id="pricing">
+		<div class="text-center mb-12 text-5xl font-semibold tracking-tight text-balance text-gray-900">Pricing</div>
+
+	</section>
+
+	<!-- Footer -->
+	<!-- <footer class="py-12 bg-gray-900 text-gray-300 text-center">
+	  <p>© <script>document.write(new Date().getFullYear());</script> DigitalHawk Ltd. All rights reserved.</p>
+	</footer> -->
+	
+</body>
+
+<script>
+	const burger = document.getElementById('burger');
+	const menu = document.getElementById('mobileMenu');
+	const closer = document.getElementById('closeMenu');
+  
+	function toggleMenu () {
+	  	const isHidden = menu.classList.toggle('hidden');         
+	  	burger.setAttribute('aria-expanded', String(!isHidden));
+	}
+
+	menu.querySelectorAll('a').forEach(link =>
+		link.addEventListener('click', toggleMenu)
+	);
+  
+	burger.addEventListener('click', toggleMenu);
+	closer.addEventListener('click', toggleMenu);
+
+  </script>
 
 </html>
