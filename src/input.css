@@ -2,6 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
+.font-sketch {
+    font-family: 'Kalam', cursive;
+}
+
 @keyframes fadeUp {
     0% {
         opacity:0; transform:translateY(40px);
@@ -20,7 +24,7 @@ html {
 }
 
 .color-wave {
-    background: linear-gradient(270deg, #ff00a6, #4a39e4, #ff00a6, #ff8800);
+    background: linear-gradient(270deg, #2dd4bf, #115e59, #2dd4bf, #115e59);
     background-size: 800% 800%;
     animation: wave 5s ease infinite;
 }
