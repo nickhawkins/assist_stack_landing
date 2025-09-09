@@ -49,3 +49,67 @@ html {
         background-position: 0% 50%;
     }
 }
+
+/* Chatbot Animations */
+@keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.animate-fadeInUp {
+    animation: fadeInUp 0.4s ease-out forwards;
+}
+
+.chatbot-toggle {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.chatbot-toggle:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 20px 25px -5px rgba(16, 185, 129, 0.4), 0 10px 10px -5px rgba(16, 185, 129, 0.2);
+}
+
+.chatbot-panel {
+    transition: transform 0.5s cubic-bezier(0.25, 0.8, 0.25, 1);
+    backdrop-filter: blur(8px);
+}
+
+.chatbot-panel.chatbot-open {
+    transform: translateX(0);
+}
+
+/* Mobile responsive */
+@media (max-width: 640px) {
+    .chatbot-panel {
+        width: 100vw;
+    }
+}
+
+/* Smooth scrolling for chat messages */
+#chat-messages {
+    scroll-behavior: smooth;
+}
+
+/* Custom scrollbar for chat messages */
+#chat-messages::-webkit-scrollbar {
+    width: 4px;
+}
+
+#chat-messages::-webkit-scrollbar-track {
+    background: #f1f5f9;
+}
+
+#chat-messages::-webkit-scrollbar-thumb {
+    background: #cbd5e1;
+    border-radius: 2px;
+}
+
+#chat-messages::-webkit-scrollbar-thumb:hover {
+    background: #94a3b8;
+}
