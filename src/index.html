@@ -61,7 +61,46 @@
 			<div class="text-xl text-gray-500 tracking-tight font-sketch lg:absolute lg:top-[3rem] lg:left-[1rem] lg:pb-0 text-center pb-5">Watch your tickets drop in real time ⤵</div>
 
 			<img class="w-full h-auto object-cover shadow-xl rounded-xl border-2 border-emerald-400" src="./hero.webp">
-			<img class="w-[30vw] h-auto object-cover shadow-xl rounded-xl border-2 border-emerald-400 absolute top-1/2 right-0 transform -translate-y-1/2" src="./chatbot.webp">
+			
+			<!-- Interactive Chatbot Demo -->
+			<div class="w-[30vw] min-w-[320px] h-[400px] absolute top-1/2 right-0 transform -translate-y-1/2 shadow-xl rounded-xl border-2 border-emerald-400 bg-white overflow-hidden">
+				<!-- Chatbot Header -->
+				<div class="bg-emerald-500 text-white p-3 flex items-center gap-2">
+					<img class="h-6 w-6 rounded-full" src="./logo.webp" alt="AssistStack">
+					<div>
+						<div class="font-semibold text-sm">AssistStack</div>
+						<div class="text-xs opacity-90">Your AI Assistant</div>
+					</div>
+					<div class="ml-auto flex gap-1">
+						<div class="w-2 h-2 bg-white/30 rounded-full"></div>
+						<div class="w-2 h-2 bg-white/30 rounded-full"></div>
+						<div class="w-2 h-2 bg-white/30 rounded-full"></div>
+					</div>
+				</div>
+				
+				<!-- Chat Messages Container -->
+				<div id="chatMessages" class="flex-1 overflow-y-auto p-4 space-y-3 bg-gray-50" style="height: 300px;">
+					<!-- Initial messages will be populated by JavaScript -->
+				</div>
+				
+				<!-- Chat Input -->
+				<div class="p-3 border-t bg-white">
+					<div class="flex gap-2">
+						<input 
+							id="chatInput" 
+							type="text" 
+							placeholder="Type a message..." 
+							class="flex-1 px-3 py-2 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500"
+						>
+						<button 
+							id="sendButton"
+							class="px-4 py-2 bg-emerald-500 text-white rounded-lg text-sm font-medium hover:bg-emerald-600 focus:outline-none focus:ring-2 focus:ring-emerald-500"
+						>
+							Send
+						</button>
+					</div>
+				</div>
+			</div>
 		</div>
 	</section>
 
@@ -177,6 +216,194 @@
 			</div>
 		</div>
 	</footer>
+
+	<script>
+		class ChatBot {
+			constructor() {
+				this.messagesContainer = document.getElementById('chatMessages');
+				this.chatInput = document.getElementById('chatInput');
+				this.sendButton = document.getElementById('sendButton');
+				this.isStreaming = false;
+				this.userScrolledUp = false;
+				this.lastScrollTop = 0;
+				
+				this.init();
+			}
+			
+			init() {
+				// Add initial messages
+				this.addInitialMessages();
+				
+				// Event listeners
+				this.sendButton.addEventListener('click', () => this.sendMessage());
+				this.chatInput.addEventListener('keypress', (e) => {
+					if (e.key === 'Enter') this.sendMessage();
+				});
+				
+				// Scroll monitoring for proper auto-scroll behavior
+				this.messagesContainer.addEventListener('scroll', () => this.handleScroll());
+				
+				// Start demo conversation after a delay
+				setTimeout(() => this.startDemoConversation(), 3000);
+			}
+			
+			addInitialMessages() {
+				const messages = [
+					{ type: 'bot', text: 'Hi! I\'m your AI assistant. How can I help you today?' },
+					{ type: 'user', text: 'How do I reset my password?' },
+					{ type: 'bot', text: 'I can help you reset your password! Here are the steps:\n\n1. Go to the login page\n2. Click "Forgot Password"\n3. Enter your email address\n4. Check your email for the reset link\n\nWould you like me to send you a direct link to start the password reset process?' }
+				];
+				
+				messages.forEach((msg, index) => {
+					setTimeout(() => {
+						this.addMessage(msg.type, msg.text, false);
+					}, index * 500);
+				});
+			}
+			
+			handleScroll() {
+				const { scrollTop, scrollHeight, clientHeight } = this.messagesContainer;
+				const isAtBottom = Math.abs(scrollHeight - clientHeight - scrollTop) < 5;
+				
+				// Detect if user scrolled up manually (only when not streaming)
+				if (!this.isStreaming) {
+					if (scrollTop < this.lastScrollTop && !isAtBottom) {
+						this.userScrolledUp = true;
+					} else if (isAtBottom) {
+						this.userScrolledUp = false;
+					}
+				}
+				
+				this.lastScrollTop = scrollTop;
+			}
+			
+			addMessage(type, text, shouldStream = false) {
+				const messageDiv = document.createElement('div');
+				messageDiv.className = `flex ${type === 'user' ? 'justify-end' : 'justify-start'}`;
+				
+				const bubbleDiv = document.createElement('div');
+				bubbleDiv.className = `max-w-[80%] px-3 py-2 rounded-lg text-sm ${
+					type === 'user' 
+						? 'bg-emerald-500 text-white rounded-br-sm' 
+						: 'bg-white border rounded-bl-sm shadow-sm'
+				}`;
+				
+				if (shouldStream && type === 'bot') {
+					// Streaming animation
+					this.isStreaming = true;
+					bubbleDiv.innerHTML = '<span class="typing-indicator">●●●</span>';
+					messageDiv.appendChild(bubbleDiv);
+					this.messagesContainer.appendChild(messageDiv);
+					this.smartScroll();
+					
+					// Simulate streaming text
+					setTimeout(() => {
+						this.streamText(bubbleDiv, text);
+					}, 500);
+				} else {
+					// Instant message
+					bubbleDiv.innerHTML = text.replace(/\n/g, '<br>');
+					messageDiv.appendChild(bubbleDiv);
+					this.messagesContainer.appendChild(messageDiv);
+					this.smartScroll();
+				}
+			}
+			
+			streamText(element, text) {
+				let index = 0;
+				element.innerHTML = '';
+				
+				const streamInterval = setInterval(() => {
+					if (index < text.length) {
+						element.innerHTML += text.charAt(index);
+						index++;
+						// Auto-scroll during streaming if user hasn't scrolled up
+						this.smartScroll();
+					} else {
+						clearInterval(streamInterval);
+						this.isStreaming = false;
+						// Final scroll to ensure full message is visible
+						this.smartScroll();
+					}
+				}, 30);
+			}
+			
+			smartScroll() {
+				// Only auto-scroll if:
+				// 1. We're streaming a message, OR
+				// 2. User hasn't manually scrolled up
+				if (this.isStreaming || !this.userScrolledUp) {
+					this.messagesContainer.scrollTop = this.messagesContainer.scrollHeight;
+				}
+			}
+			
+			sendMessage() {
+				const message = this.chatInput.value.trim();
+				if (!message) return;
+				
+				// Add user message
+				this.addMessage('user', message);
+				this.chatInput.value = '';
+				
+				// Reset scroll state when user sends a message
+				this.userScrolledUp = false;
+				
+				// Simulate bot response
+				setTimeout(() => {
+					const responses = [
+						"That's a great question! Let me help you with that. Based on our documentation, here's what I recommend...",
+						"I understand what you're looking for. Here are the steps to resolve this issue quickly and efficiently.",
+						"Perfect! I can definitely assist you with that. This is a common question, and I have the exact information you need.",
+						"Thanks for reaching out! I've found the relevant information in our knowledge base. Here's how to proceed..."
+					];
+					const randomResponse = responses[Math.floor(Math.random() * responses.length)];
+					this.addMessage('bot', randomResponse, true);
+				}, 1000);
+			}
+			
+			startDemoConversation() {
+				const demoMessages = [
+					{ type: 'user', text: 'Can you help me understand how billing works?' },
+					{ type: 'bot', text: 'Absolutely! I\'d be happy to explain our billing system. We offer flexible monthly and annual plans with transparent pricing.\n\nOur billing cycle starts on the day you subscribe, and you\'ll receive an email confirmation with your invoice. You can view all your billing history in your account dashboard.\n\nWould you like me to show you how to access your billing information?' },
+					{ type: 'user', text: 'Yes, that would be helpful!' },
+					{ type: 'bot', text: 'Great! Here\'s how to access your billing information:\n\n1. Log into your account dashboard\n2. Navigate to "Account Settings"\n3. Click on "Billing & Subscriptions"\n4. You\'ll see your current plan, payment method, and billing history\n\nFrom there, you can also update your payment method or upgrade/downgrade your plan. Is there anything specific about billing you\'d like to know more about?' }
+				];
+				
+				let messageIndex = 0;
+				const sendNextMessage = () => {
+					if (messageIndex < demoMessages.length) {
+						const msg = demoMessages[messageIndex];
+						this.addMessage(msg.type, msg.text, msg.type === 'bot');
+						messageIndex++;
+						
+						// Schedule next message
+						const delay = msg.type === 'bot' ? 4000 : 2000;
+						setTimeout(sendNextMessage, delay);
+					}
+				};
+				
+				sendNextMessage();
+			}
+		}
+		
+		// CSS for typing indicator
+		const style = document.createElement('style');
+		style.textContent = `
+			.typing-indicator {
+				animation: typing 1.4s infinite;
+			}
+			@keyframes typing {
+				0%, 60% { opacity: 1; }
+				30% { opacity: 0.5; }
+			}
+		`;
+		document.head.appendChild(style);
+		
+		// Initialize chatbot when DOM is loaded
+		document.addEventListener('DOMContentLoaded', () => {
+			new ChatBot();
+		});
+	</script>
 	
 </body>
 </html>
