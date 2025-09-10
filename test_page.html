@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Page for Chrome Extension</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            line-height: 1.6;
+        }
+        .lazy-content {
+            margin-top: 2000px;
+            padding: 20px;
+            background: #f0f0f0;
+            border: 2px solid #333;
+        }
+        .section {
+            margin: 20px 0;
+            padding: 15px;
+            border-left: 4px solid #007cba;
+            background: #f9f9f9;
+        }
+    </style>
+</head>
+<body>
+    <h1>Test Page for Assist Stack Extension</h1>
+    
+    <div class="section">
+        <h2>Introduction</h2>
+        <p>This is a test page to verify the Chrome extension functionality. The extension should be able to:</p>
+        <ul>
+            <li>Collect the full HTML with doctype</li>
+            <li>Add a base href tag if missing</li>
+            <li>Scroll the page to trigger lazy-loaded content</li>
+            <li>Send the HTML to the FastAPI backend</li>
+        </ul>
+    </div>
+
+    <div class="section">
+        <h2>Instructions</h2>
+        <ol>
+            <li>Make sure the FastAPI backend is running on localhost:5001</li>
+            <li>Load the Chrome extension from the /extension directory</li>
+            <li>Click the extension icon on this page</li>
+            <li>Enter a display name (e.g., "Test Page")</li>
+            <li>Click "Collect HTML"</li>
+            <li>The extension should scroll down and then submit the HTML to the backend</li>
+        </ol>
+    </div>
+
+    <div class="section">
+        <h2>What to Expect</h2>
+        <p>When the extension processes this page, it should:</p>
+        <ul>
+            <li>Scroll down to reveal the lazy-loaded content below</li>
+            <li>Add a base href tag to the page head</li>
+            <li>Collect the complete HTML including the doctype</li>
+            <li>Send the data to the backend API</li>
+            <li>Show a success message</li>
+        </ul>
+    </div>
+
+    <div class="lazy-content">
+        <h2>🎉 Lazy-Loaded Content</h2>
+        <p>This content appears below the fold and should be captured when the extension scrolls the page!</p>
+        <p>If you can see this content in the final HTML sent to the backend, the scrolling functionality is working correctly.</p>
+    </div>
+
+    <script>
+        // Add some dynamic content to test if it gets captured
+        document.addEventListener('DOMContentLoaded', function() {
+            const timestamp = new Date().toISOString();
+            const dynamicElement = document.createElement('div');
+            dynamicElement.className = 'section';
+            dynamicElement.innerHTML = `
+                <h2>Dynamic Content</h2>
+                <p>This content was added dynamically at: ${timestamp}</p>
+                <p>It should be included in the collected HTML if the extension waits for the page to fully load.</p>
+            `;
+            document.body.appendChild(dynamicElement);
+            
+            console.log('Dynamic content added to test page');
+        });
+    </script>
+</body>
+</html>

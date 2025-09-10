@@ -56,20 +56,33 @@
   
   // Send data to backend
   async function sendToBackend(data) {
-    const response = await fetch(`${API_BASE_URL}/files/create_html`, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(data),
-    });
-    
-    if (!response.ok) {
-      const errorText = await response.text();
-      throw new Error(`Backend error: ${response.status} - ${errorText}`);
+    try {
+      const response = await fetch(`${API_BASE_URL}/files/create_html`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(data),
+      });
+      
+      if (!response.ok) {
+        let errorText;
+        try {
+          const errorData = await response.json();
+          errorText = errorData.detail || `HTTP ${response.status}`;
+        } catch {
+          errorText = await response.text();
+        }
+        throw new Error(`Backend error: ${response.status} - ${errorText}`);
+      }
+      
+      return await response.json();
+    } catch (error) {
+      if (error.name === 'TypeError' || error.message.includes('Failed to fetch')) {
+        throw new Error('Cannot connect to backend. Make sure the server is running on localhost:5001');
+      }
+      throw error;
     }
-    
-    return await response.json();
   }
   
   // Main collection function
