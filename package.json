@@ -16,8 +16,9 @@
     "build:logo_2": "cp ./src/logo_2.webp ./docs/logo_2.webp", 
     "build:logo_3": "cp ./src/logo_3.webp ./docs/logo_3.webp", 
     "build:logo_4": "cp ./src/logo_4.webp ./docs/logo_4.webp", 
+    "build:ico": "cp ./src/logo.ico ./docs/logo.ico", 
     "build:product_1": "cp ./src/product_1.webp ./docs/product_1.webp", 
-    "build": "npm-run-all build:hero build:chatbot build:feature-1 build:feature-2 build:feature-3 build:css build:html build:logo build:logo_1 build:logo_2 build:logo_3 build:logo_4 build:product_1", 
+    "build": "npm-run-all build:hero build:chatbot build:feature-1 build:feature-2 build:feature-3 build:css build:html build:logo build:logo_1 build:logo_2 build:logo_3 build:logo_4 build:product_1 build:ico", 
     "dev": "npx tailwindcss -i ./src/input.css -o ./src/output.css --watch"
   },
   "keywords": [],
