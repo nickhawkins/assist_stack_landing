@@ -1,0 +1,24 @@
+{
+  "manifest_version": 3,
+  "name": "Assist Stack HTML Collector",
+  "version": "1.0.0",
+  "description": "Collects fully rendered HTML from web pages and sends to Assist Stack backend",
+  "permissions": [
+    "activeTab",
+    "scripting"
+  ],
+  "host_permissions": [
+    "<all_urls>"
+  ],
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "Collect Page HTML"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content.js"],
+      "run_at": "document_idle"
+    }
+  ]
+}
